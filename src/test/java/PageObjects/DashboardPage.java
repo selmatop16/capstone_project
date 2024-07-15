@@ -14,7 +14,8 @@ public class DashboardPage {
         PageFactory.initElements(driver, this);
     }
    //Verifying if dashboard is displayed
-    public void checkDashboardIsDisplayed(){
+    public void checkDashboardIsDisplayed()
+    {
         dashboard.isDisplayed();
     }
 }

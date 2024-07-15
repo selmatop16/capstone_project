@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features="src/test/resources/Features"
-        ,glue="StepDefinitions"
+        ,glue="StepDefinitions/LoginSteps"
         ,dryRun=false
         ,plugin= {"pretty","html:test-output"}
         ,monochrome=true
