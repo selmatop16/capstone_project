@@ -8,12 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AdminPage {
     public WebDriver driver;
-
     public AdminPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
+    @FindBy(linkText = "Admin")
+    WebElement adminMenu;
     @FindBy(id = "btnAdd")
     WebElement add;
     @FindBy(xpath = "//select[@id='systemUser_userType']/option[text()='Admin']")
@@ -37,7 +37,10 @@ public class AdminPage {
 
     @FindBy(id = "btnSave")
     WebElement saveButton;
-
+    public void clickOnAdminMenu()
+    {
+        adminMenu.click();
+    }
     public void clickOnAdd()
     {
         add.click();
@@ -56,10 +59,9 @@ public class AdminPage {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", (role.equals("Admin") ? userRoleAdmin : userRoleEss));
     }
-
     public void enterEmployee()
     {
-        employeeName.sendKeys("Sam");
+        employeeName.sendKeys("Sam Lee");
     }
     public void enterUsername()
     {
@@ -78,7 +80,6 @@ public class AdminPage {
         {
             throw new IllegalArgumentException("Invalid role: " + status);
         }
-
     }
     public void enterPassword()
     {
