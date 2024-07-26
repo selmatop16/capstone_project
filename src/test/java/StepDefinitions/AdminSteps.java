@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,8 +21,16 @@ public class AdminSteps extends BaseClass {
     }
     @And("Click on Add button")
     public void click_on_add_button() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnAdd")));
+//        wait.until(ExpectedConditions.elementToBeClickable(By.id("btnAdd"))).click();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("btnAdd")));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('btnAdd').click();");
+
         adminPage.clickOnAdd();
     }
     @Then("Select user role as Admin")
