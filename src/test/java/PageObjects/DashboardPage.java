@@ -11,7 +11,6 @@ import java.time.Duration;
 
 public class DashboardPage {
    @FindBy(id = "menu_dashboard_index")
-
     WebElement dashboard;
     WebDriver driver;
     public DashboardPage(WebDriver driver) {
